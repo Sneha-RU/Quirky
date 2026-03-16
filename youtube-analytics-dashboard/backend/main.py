@@ -4,6 +4,9 @@ from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 import uvicorn
 import os
+from dotenv import load_dotenv
+
+load_dotenv()  # Load .env variables into os.environ
 
 from database import db
 from query_runner import run_query
