@@ -29,12 +29,11 @@ class QueryRequest(BaseModel):
 
 @app.on_event("startup")
 def startup_event():
-    # If the dummy data wrapper generated the file, load it
-    csv_path = "data/youtube_content.csv"
+    csv_path = "data/YouTube Content Creation.csv"
     if os.path.exists(csv_path):
         db.load_csv(csv_path)
     else:
-        print(f"Warning: {csv_path} not found. Start mock script first.")
+        print(f"Warning: {csv_path} not found.")
 
 @app.post("/api/query")
 async def process_query(req: QueryRequest):
